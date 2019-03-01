@@ -1,0 +1,66 @@
+{
+    "name": "it-academy-doc",
+    "private": true,
+    "description": "",
+    "version": "0.1.0",
+    "author": "PA-Bishkek",
+    "dependencies": {
+        "babel-plugin-styled-components": "^1.10.0",
+        "gatsby": "^2.1.19",
+        "gatsby-image": "^2.0.30",
+        "gatsby-plugin-manifest": "^2.0.20",
+        "gatsby-plugin-offline": "^2.0.24",
+        "gatsby-plugin-react-helmet": "^3.0.7",
+        "gatsby-plugin-sharp": "^2.0.23",
+        "gatsby-plugin-styled-components": "^3.0.6",
+        "gatsby-plugin-typography": "^2.2.7",
+        "gatsby-plugin-web-font-loader": "^1.0.4",
+        "gatsby-source-filesystem": "^2.0.23",
+        "gatsby-transformer-remark": "^2.3.0",
+        "gatsby-transformer-sharp": "^2.1.14",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "react-helmet": "^5.2.0",
+        "react-typography": "^0.16.18",
+        "rehype-react": "^3.1.0",
+        "styled-components": "^4.1.3",
+        "typography": "^0.16.18"
+    },
+    "devDependencies": {
+        "babel-eslint": "9.x.x",
+        "eslint": "^5.14.1",
+        "eslint-config-prettier": "^4.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-prettier": "^3.0.1",
+        "eslint-plugin-react": "^7.12.4",
+        "husky": "^1.3.1",
+        "prettier": "^1.16.4"
+    },
+    "keywords": [],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --write src/**/*.{js,jsx}",
+        "start": "yarn run develop",
+        "serve": "gatsby serve",
+        "lint": "yarn run eslint ./"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pa-bishkek/it-academy-doc"
+    },
+    "prettier": {
+        "endOfLine": "lf",
+        "semi": true,
+        "singleQuote": false,
+        "tabWidth": 4,
+        "trailingComma": "all"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn run lint"
+        }
+    }
+}
