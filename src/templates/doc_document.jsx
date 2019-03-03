@@ -3,25 +3,25 @@ import PT from "prop-types";
 import rehypeReact from "rehype-react";
 import { graphql } from "gatsby";
 
-import { Layout } from "../components";
+import { Page } from "../components";
 
 const renderAst = new rehypeReact({
-    createElement: React.createElement
+    createElement: React.createElement,
 }).Compiler;
 
 const PostTemplate = ({ data }) => {
     const { markdownRemark } = data;
     return (
-        <Layout>
+        <Page>
             <div>
                 <h1>{markdownRemark.frontmatter.title}</h1>
                 <div className="body">{renderAst(markdownRemark.htmlAst)}</div>
             </div>
-        </Layout>
+        </Page>
     );
 };
 PostTemplate.propTypes = {
-    data: PT.any
+    data: PT.any,
 };
 
 export const pageQuery = graphql`

@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
 };
 
 IndexPage.propTypes = {
-    data: PT.any
+    data: PT.any,
 };
 
 export default IndexPage;
