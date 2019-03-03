@@ -1,13 +1,14 @@
 import React from "react";
 import PT from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
-import { Layout, SEO } from "../components";
+import { Page, SEO, Sidebar } from "../components";
+import { Link } from "../components/atoms";
 
 const IndexPage = ({ data }) => {
     const { edges: posts } = data.allMarkdownRemark;
     return (
-        <Layout>
+        <Page sidebar={<Sidebar>Hello!</Sidebar>}>
             <SEO title="It-Academy Bishkek" keywords={["Документация"]} />
             {posts
                 .filter(post => post.node.frontmatter.title.length > 0)
@@ -24,7 +25,7 @@ const IndexPage = ({ data }) => {
                         </div>
                     );
                 })}
-        </Layout>
+        </Page>
     );
 };
 

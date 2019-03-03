@@ -5,7 +5,7 @@ import Grid from "hedron";
 import { Reset } from "styled-reset";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Container } from "./Layout";
+import { Container, Col } from "./Layout";
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext');
@@ -24,8 +24,10 @@ class Page extends Component {
                     <Reset />
                     <GlobalStyle />
                     <Header />
-                    {sidebar && null}
-                    <PageContent>{this.props.children}</PageContent>
+                    <PageBody>
+                        {sidebar || null}
+                        <PageContent>{this.props.children}</PageContent>
+                    </PageBody>
                     <Footer />
                 </React.Fragment>
             </Grid.Provider>
@@ -38,9 +40,11 @@ Page.propTypes = {
     sidebar: PT.element,
 };
 
-const PageContent = styled(Container)`
+const PageBody = styled(Container)`
     margin-top: 1rem;
     margin-bottom: 5rem;
 `;
+
+const PageContent = styled(Col)``;
 
 export default Page;
