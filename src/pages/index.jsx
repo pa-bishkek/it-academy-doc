@@ -8,23 +8,28 @@ import { Link } from "../components/atoms";
 const IndexPage = ({ data }) => {
     const { edges: posts } = data.allMarkdownRemark;
     return (
-        <Page sidebar={<Sidebar>Hello!</Sidebar>}>
+        <Page
+            sidebar={
+                <Sidebar>
+                    <Sidebar.SidebarNav>
+                        {posts
+                            .filter(
+                                post => post.node.frontmatter.title.length > 0,
+                            )
+                            .map(({ node: post }) => {
+                                return (
+                                    <Sidebar.SidebarNavItem key={post.id}>
+                                        <Link to={post.frontmatter.path}>
+                                            {post.frontmatter.title}
+                                        </Link>
+                                    </Sidebar.SidebarNavItem>
+                                );
+                            })}
+                    </Sidebar.SidebarNav>
+                </Sidebar>
+            }
+        >
             <SEO title="It-Academy Bishkek" keywords={["Документация"]} />
-            {posts
-                .filter(post => post.node.frontmatter.title.length > 0)
-                .map(({ node: post }) => {
-                    return (
-                        <div className="blog-post-preview" key={post.id}>
-                            <h1>
-                                <Link to={post.frontmatter.path}>
-                                    {post.frontmatter.title}
-                                </Link>
-                            </h1>
-                            <h2>{post.frontmatter.date}</h2>
-                            <p>{post.excerpt}</p>
-                        </div>
-                    );
-                })}
         </Page>
     );
 };

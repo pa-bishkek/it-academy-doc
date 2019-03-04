@@ -9,6 +9,7 @@ import { Container, Col } from "./Layout";
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext');
+    @import url('https://fonts.googleapis.com/css?family=Spectral:400,500,700&subset=cyrillic');
     body {
         font-family: 'Roboto', sans-serif;
         line-height: 1.65;
@@ -19,7 +20,10 @@ class Page extends Component {
     render() {
         const { sidebar } = this.props;
         return (
-            <Grid.Provider>
+            <Grid.Provider
+                padding="20px"
+                breakpoints={{ sm: "-500", md: "501-750", lg: "+750" }}
+            >
                 <React.Fragment>
                     <Reset />
                     <GlobalStyle />
@@ -45,6 +49,8 @@ const PageBody = styled(Container)`
     margin-bottom: 5rem;
 `;
 
-const PageContent = styled(Col)``;
+const PageContent = styled(Col)`
+    font-family: "Spectral", serif;
+`;
 
 export default Page;

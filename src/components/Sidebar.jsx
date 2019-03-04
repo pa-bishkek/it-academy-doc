@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Col } from "./Layout";
 import { Link } from "./atoms";
+import { styled_vars } from "../config";
 
 class Sidebar extends Component {
     render() {
@@ -20,14 +21,12 @@ class Sidebar extends Component {
     }
 }
 
-const SidebarNav = styled.ul`
-    padding-top: 3rem;
+const SidebarNav = (Sidebar.SidebarNav = styled.ul`
     padding-left: 1.25rem;
-    margin-left: 1rem;
-    border-left: 1px solid #efefef;
-`;
+    border-left: 1px solid ${styled_vars.LIGHT_GREY};
+`);
 
-const SidebarNavItem = styled.li`
+const SidebarNavItem = (Sidebar.SidebarNavItem = styled.li`
     margin: 12px 0;
     position: relative;
     &:before {
@@ -38,13 +37,18 @@ const SidebarNavItem = styled.li`
         height: 9px;
         min-width: 9px;
         border-radius: 50%;
-        background: #111;
+        background: ${styled_vars.LIGHT_GREY};
         position: absolute;
-        left: -19px;
+        left: -1.25rem;
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
     }
-`;
+    &.active {
+        &:before {
+            background: ${styled_vars.BLACK};
+        }
+    }
+`);
 
 const Root = styled(Col)`
     padding: 1rem 3rem 0 0;
